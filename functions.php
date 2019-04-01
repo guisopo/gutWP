@@ -321,3 +321,9 @@ require get_template_directory() . '/inc/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+
+/**
+ * Custom Guttenmberg Block.
+ */
+ require get_template_directory() .  '/inc/gutenberg.php';
