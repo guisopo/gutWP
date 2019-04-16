@@ -1,4 +1,4 @@
-const { register } = wp.blocks;
+const { registerBlockType } = wp.blocks;
 
 registerBlockType('guisopo/custom-cta', {
   // built-in attributes
