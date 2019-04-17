@@ -12,10 +12,9 @@ registerBlockType('guisopo/custom-cta', {
       type: 'string'
     }
   },
-  // custom functions
-
   // built-in functions
   edit({ attributes, setAttributes }) {
+    // custom functions
     function updateAuthor(event) {
       setAttributes( { author: event.target.value } );
     }
