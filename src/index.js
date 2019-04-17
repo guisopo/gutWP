@@ -7,12 +7,22 @@ registerBlockType('guisopo/custom-cta', {
   icon: 'format-image',
   category: 'layout',
   // custom attributes
-  attributes: {},
+  attributes: {
+    author: {
+      type: 'string'
+    }
+  },
   // custom functions
 
   // built-in functions
-  edit() {
-    return <div>Hello World</div>;
+  edit({ attributes, setAttributes }) {
+    function updateAuthor(event) {
+      setAttributes( { author: event.target.value } );
+    }
+    return <input value={ attributes.author } onChange={ updateAuthor } type="text"></input>;
   },
-  save() {}
+  
+  save({ attributes }) {
+    return <p>Author Name: <i>{ attributes.author }</i></p>;
+  }
 });
