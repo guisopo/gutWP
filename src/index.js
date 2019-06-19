@@ -1,5 +1,5 @@
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControl, ColorPalette } = wp.editor;
+const { RichText, InspectorControls, ColorPalette } = wp.editor;
 const { PanelBody } = wp.components;
 
 registerBlockType('guisopo/custom-cta', {
@@ -37,8 +37,20 @@ registerBlockType('guisopo/custom-cta', {
     function onChangeBody(newBody) {
       setAttributes( { body: newBody } );
     }
+
+    function onTitleColorChange(newColor) {
+      setAttributes( { titleColor: newColor } );
+    }
     
     return ([
+      <InspectorControls style={ { marginBottom: '40px' } }>
+        <PanelBody title={ 'Font Color Settings' }>
+          <p><strong>Select the color of your title:</strong></p>
+          <ColorPalette value={ titleColor } 
+                        onChange={ onTitleColorChange } />
+        </PanelBody>
+      </InspectorControls>,
+
       <div className="cta-container">
         <RichText key="editable"
                   tagName="h2"
