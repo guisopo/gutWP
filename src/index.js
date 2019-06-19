@@ -1,5 +1,6 @@
 const { registerBlockType } = wp.blocks;
-const { RichText } = wp.editor;
+const { RichText, InspectorControl, ColorPalette } = wp.editor;
+const { PanelBody } = wp.components;
 
 registerBlockType('guisopo/custom-cta', {
   // built-in attributes
@@ -14,6 +15,10 @@ registerBlockType('guisopo/custom-cta', {
       source: 'html',
       selector: 'h2'
     },
+    titleColor: {
+      type: 'string',
+      default: 'green'
+    },
     body: {
       type: 'string',
       source: 'html',
@@ -22,7 +27,7 @@ registerBlockType('guisopo/custom-cta', {
   },
   // built-in functions
   edit({ attributes, setAttributes }) {
-    const { title, body } = attributes;
+    const { title, body, titleColor } = attributes;
 
     // custom functions
     function onChangeTitle(newTitle) {
@@ -39,7 +44,8 @@ registerBlockType('guisopo/custom-cta', {
                   tagName="h2"
                   placeholder="Your CTA Title"
                   value={ title }
-                  onChange={ onChangeTitle }/>
+                  onChange={ onChangeTitle }
+                  style={ { color: titleColor } }/>
         <RichText key="editable"
                   tagName="p"
                   placeholder="Your CTA Body"

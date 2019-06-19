@@ -45,7 +45,7 @@ function guisopo_default_colors() {
 add_action('init', 'guisopo_default_colors');
 
 function guisopo_gutenberg_blocks() {
-  wp_register_script( 'custom-cta-js', get_template_directory_uri() . '/build/index.js', array( 'wp-blocks', 'wp-editor' ));
+  wp_register_script( 'custom-cta-js', get_template_directory_uri() . '/build/index.js', array( 'wp-blocks', 'wp-editor', 'wp-components' ));
   register_block_type( 'guisopo/custom-cta', array(
     'editor_script' => 'custom-cta-js'
   ));
