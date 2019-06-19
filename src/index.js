@@ -17,7 +17,7 @@ registerBlockType('guisopo/custom-cta', {
     },
     titleColor: {
       type: 'string',
-      default: 'green'
+      default: 'black'
     },
     body: {
       type: 'string',
@@ -68,10 +68,10 @@ registerBlockType('guisopo/custom-cta', {
   },
   
   save({ attributes }) {
-    const { title, body } = attributes;
+    const { title, body, titleColor } = attributes;
     return (
       <div className="cta-container">
-        <h2>{ title }</h2>
+        <h2 style={ { color: titleColor } }>{ title }</h2>
         <RichText.Content tagName="p" 
                           value={ body }/>
       </div>
